@@ -1,4 +1,4 @@
-ARCHIVO_CONTACTOS = "agenda.txt"
+ARCHIVO_CONTACTOS = "agenda.json"
 
 def cargar_contactos():
     contactos = []
@@ -26,7 +26,8 @@ def mostrar_menu():
     print("1. Agregar contacto")
     print("2. Ver todos los contactos")
     print("3. Buscar contacto por nombre")
-    print("4. Salir")
+    print("4. Borrar contacto por nombre")
+    print("5. Salir")
 
 def agregar_contacto(contactos):
     nombre = input("Nombre: ")
@@ -55,12 +56,32 @@ def buscar_contacto(contactos):
     else:
         print("❌ No se encontró ese contacto.")
 
+def eliminar_contacto(contactos):
+    nombre=input("Contacto a eliminar:").lower()
+    encontrados=[c for c in contactos if c["nombre"].lower()== nombre]
+    if encontrados:
+        for c in encontrados:
+            nom=c["nombre"]
+            print(f"✔️ {c['nombre']} | Tel: {c['telefono']} | Email: {c['correo']}")
+            borrar=input(f'Desea borrar en contacto{c["nombre"]}, SI/NO: ')
+            if borrar== "SI":
+                contactos.remove(c)
+                print (f'El cliente {nom}, se elimino correctamente')
+            else:
+                print(f'No se borrar de la agenda el cliente {nom}')
+    else:
+        print('No se encontro el contacto')            
+        with open (ARCHIVO_CONTACTOS, "w") as archivo:
+            for c in contactos:
+                archivo.write(f"{c['nombre']},{c['telefono']},{c['correo']}\n")
+
+
 # --- Programa principal ---
 agenda = cargar_contactos()
 
 while True:
     mostrar_menu()
-    opcion = input("Elige una opción (1-4): ")
+    opcion = input("Elige una opción (1-5): ")
 
     if opcion == "1":
         agregar_contacto(agenda)
@@ -69,6 +90,8 @@ while True:
     elif opcion == "3":
         buscar_contacto(agenda)
     elif opcion == "4":
+        eliminar_contacto(agenda)
+    elif opcion == "5":
         print("👋 ¡Hasta luego!")
         break
     else:
