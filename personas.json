@@ -1,0 +1,22 @@
+[
+    {
+        "nombre": "Pepito Perez",
+        "edad": "18",
+        "correo": "sadhj@hotmail.com"
+    },
+    {
+        "nombre": "Marcela",
+        "edad": "25",
+        "correo": "51"
+    },
+    {
+        "nombre": "Sandra",
+        "edad": "52",
+        "correo": "sad@dssh.com"
+    },
+    {
+        "nombre": "Alvaro",
+        "edad": "30",
+        "correo": "dsajhs@hotm.com"
+    }
+]
