@@ -1,0 +1,4 @@
+#Instalar las siguiente librerias
+flask
+pandas
+pytest
