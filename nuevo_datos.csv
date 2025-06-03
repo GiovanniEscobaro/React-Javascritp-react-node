@@ -1,0 +1,8 @@
+id,nombre,edad,ciudad
+1,Ana,23.0,Cali
+2,Luis,30.0,Bogota
+4,Marc,,Barranquilas
+5,,27.0,Tunja
+3,Camila,27.0,Bogota
+1,,,
+2,,,
