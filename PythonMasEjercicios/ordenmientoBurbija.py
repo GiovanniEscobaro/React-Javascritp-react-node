@@ -1,4 +1,4 @@
-numeros=[4,1,3,8,9,6,5,10,6,11]
+numeros=[4,1,3,8,9,10,6,10,6,11]
 IndeciNumeros=len(numeros)
 ordenar=[]
 for i in range(len(numeros)):

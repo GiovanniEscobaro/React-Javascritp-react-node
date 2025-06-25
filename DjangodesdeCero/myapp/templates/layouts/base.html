@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis hijos django</title>
+    <link rel="stylesheet" href="{% static 'styles/main.css' %}">
+</head>
+<body>
+    <nav class="navbar contanier">
+    <ul>
+        <li>
+            <a href="{% url 'index' %}">Inicio</a>
+        </li>
+        <li>
+            <a href="{% url 'proyectos' %}">Proyectos</a>
+        </li>
+        <li>
+            <a href="{% url 'tareas' %}">Tareas</a>
+        </li>
+        <li>
+            <a href="{% url 'about' %}">About</a>
+        </li>
+        <li>
+            <a href="{% url 'create_task' %}">Create Tareas</a>
+        </li>
+        <li>
+            <a href="{% url 'create_projects' %}">Crear Proyecto</a>
+        </li>
+    </ul>
+</nav>
+
+<main class="contanier">
+    {% block content %}
+    {% endblock %}
+</main>
+
+</body>
+</html>

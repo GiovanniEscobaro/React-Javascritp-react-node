@@ -1,0 +1,16 @@
+{% extends 'layouts/base.html' %}
+{% block content %}
+<h1>Tareas</h1>
+<!-- comenterio deferencias con el de abajo -->
+{# comenterio Esto es una tarea #}
+{% for tarea in tareas %}
+<div>
+    <h1>{{tarea.titulo}} {% if tarea.done == False %} ❎ {% else %} ✅ {% endif %}</h1>
+    <p>proyecto: {{tarea.Project.id}}  {{tarea.Project.nombre}}</p>
+   <button>
+        Borrar
+    </button>
+</div>
+{% endfor %}
+
+{% endblock %}

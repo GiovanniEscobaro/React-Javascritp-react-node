@@ -1,4 +1,4 @@
-Numero=(int(input('Digita numero par calcular Fibonacci: ')))
+Numero=40
 
 
 def fibonacci(numero):
