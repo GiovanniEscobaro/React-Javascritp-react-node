@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
 from .models import Project, tareas
 from django.shortcuts import get_object_or_404, render, redirect
+from django.http import Http404
 from .forms import CreateNewTaskForms, CrearProyectoForms
 
 # Create your views here.
@@ -66,3 +67,20 @@ def create_projects(request):
     else:
         Project.objects.create(nombre=request.POST['Nombre'])
         return redirect('proyectos')
+
+def project_detail(request,id):
+    try:
+        proyecto=Project.objects.get(id=id)
+        task=tareas.objects.filter(Project_id=id)
+        print(task)
+        return render(request,'proyecto/detalles.html',{
+            'proyecto':proyecto,
+            'tareas':task
+        
+        })
+    except:
+        raise Http404("No MyModel matches the given query.")
+        #return render(request,'proyecto/NoSeEncuentra.html')
+        
+    
+    

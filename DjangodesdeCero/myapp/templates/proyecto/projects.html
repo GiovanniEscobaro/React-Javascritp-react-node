@@ -4,7 +4,9 @@
 <h1>Proyectos</h1>
 {% for project in projects %}
 <article class="card">
-    <h1>{{project.nombre}}</h1>
+    <a href="{% url 'project_detail' project.id %}">
+        <h1>{{project.nombre}}</h1>
+    </a>
 </article>
 {% endfor%}
 {% endblock %}
